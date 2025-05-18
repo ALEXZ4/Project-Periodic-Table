@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PERIODIC TABLE</h1>
+            <p class="subtitle">Click any element to see element information.</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search Element">
+            <button id="random-btn" class="filter-btn">Random Element</button>
+        </div>
+
+        <div class="filter-container">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="alkali-metal">Alkali Metals</button>
+            <button class="filter-btn" data-category="alkaline-earth">Alkaline Earth</button>
+            <button class="filter-btn" data-category="transition-metal">Transition Metals</button>
+            <button class="filter-btn" data-category="post-transition-metal">Post-Transition</button>
+            <button class="filter-btn" data-category="metalloid">Metalloids</button>
+            <button class="filter-btn" data-category="nonmetal">Nonmetals</button>
+            <button class="filter-btn" data-category="halogen">Halogens</button>
+            <button class="filter-btn" data-category="noble-gas">Noble Gases</button>
+            <button class="filter-btn" data-category="lanthanide">Lanthanides</button>
+            <button class="filter-btn" data-category="actinide">Actinides</button>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color alkali-metal"></div>
+                <span>Alkali Metals</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color alkaline-earth"></div>
+                <span>Alkaline Earth</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color transition-metal"></div>
+                <span>Transition Metals</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color post-transition-metal"></div>
+                <span>Post-Transition</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color metalloid"></div>
+                <span>Metalloids</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color nonmetal"></div>
+                <span>Nonmetals</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color halogen"></div>
+                <span>Halogens</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color noble-gas"></div>
+                <span>Noble Gases</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color lanthanide"></div>
+                <span>Lanthanides</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color actinide"></div>
+                <span>Actinides</span>
+            </div>
+        </div>
+
+        <div class="periodic-table" id="periodicTable">
+            <!-- Elements will be inserted here by JavaScript -->
+        </div>
+
+        <div class="footer">
+            <p>ALEXZ4</p>
+            <p>@periodic-table</p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="element-details" id="elementDetails">
+        <button class="close-btn" id="closeDetails">&times;</button>
+        <div class="detail-header">
+            <div class="detail-symbol" id="detailSymbol">H</div>
+            <div>
+                <h2 class="detail-name" id="detailName">Hydrogen</h2>
+                <div class="detail-number" id="detailNumber">Atomic Number: 1</div>
+            </div>
+        </div>
+        <div class="detail-body">
+            <div class="detail-section">
+                <h3>Basic Information</h3>
+                <div class="property">
+                    <span class="property-name">Symbol:</span>
+                    <span class="property-value" id="detailSymbolText">H</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Atomic Weight:</span>
+                    <span class="property-value" id="detailAtomicWeight">1.008</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Category:</span>
+                    <span class="property-value" id="detailCategory">Nonmetal</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Group:</span>
+                    <span class="property-value" id="detailGroup">1</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Period:</span>
+                    <span class="property-value" id="detailPeriod">1</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Block:</span>
+                    <span class="property-value" id="detailBlock">s</span>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>Physical Properties</h3>
+                <div class="property">
+                    <span class="property-name">Phase at STP:</span>
+                    <span class="property-value" id="detailPhase">Gas</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Density (g/cm³):</span>
+                    <span class="property-value" id="detailDensity">0.00008988</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Melting Point (K):</span>
+                    <span class="property-value" id="detailMeltingPoint">14.01</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Boiling Point (K):</span>
+                    <span class="property-value" id="detailBoilingPoint">20.28</span>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>Atomic Properties</h3>
+                <div class="property">
+                    <span class="property-name">Electron Configuration:</span>
+                    <span class="property-value" id="detailElectronConfig">1s¹</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Electronegativity:</span>
+                    <span class="property-value" id="detailElectronegativity">2.20</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Atomic Radius (pm):</span>
+                    <span class="property-value" id="detailAtomicRadius">120</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Ionization Energy (eV):</span>
+                    <span class="property-value" id="detailIonizationEnergy">13.598</span>
+                </div>
+            </div>
+            <div class="detail-section">
+                <h3>Other Information</h3>
+                <div class="property">
+                    <span class="property-name">Discovered By:</span>
+                    <span class="property-value" id="detailDiscoveredBy">Henry Cavendish</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Discovery Year:</span>
+                    <span class="property-value" id="detailDiscoveryYear">1766</span>
+                </div>
+                <div class="property">
+                    <span class="property-name">Named By:</span>
+                    <span class="property-value" id="detailNamedBy">Antoine Lavoisier</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./elements.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
